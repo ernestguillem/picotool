@@ -1573,15 +1573,15 @@ string missing_device_string(bool wasRetry) {
     char *buf = b + strlen(b);
     if (settings.address != -1) {
         if (settings.bus != -1) {
-            sprintf(buf, "accessible RP2040 device in BOOTSEL mode was found at bus %d, address %d.", settings.bus, settings.address);
+            snprintf(buf, 256 - strlen(b), "accessible RP2040 device in BOOTSEL mode was found at bus %d, address %d.", settings.bus, settings.address);
         } else {
-            sprintf(buf, "accessible RP2040 devices in BOOTSEL mode were found with address %d.", settings.address);
+            snprintf(buf, 256 - strlen(b), "accessible RP2040 devices in BOOTSEL mode were found with address %d.", settings.address);
         }
     } else {
         if (settings.bus != -1) {
-            sprintf(buf, "accessible RP2040 devices in BOOTSEL mode were found found on bus %d.", settings.bus);
+            snprintf(buf, 256 - strlen(b), "accessible RP2040 devices in BOOTSEL mode were found found on bus %d.", settings.bus);
         } else {
-            sprintf(buf, "accessible RP2040 devices in BOOTSEL mode were found.");
+            snprintf(buf, 256 - strlen(b), "accessible RP2040 devices in BOOTSEL mode were found.");
         }
     }
     return b;
